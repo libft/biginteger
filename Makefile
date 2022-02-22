@@ -20,6 +20,8 @@ fclean:
 	$(Q)sh -c "cd build/debug/test && make fclean"
 	$(Q)rm -rf dist
 re: fclean all
-dist:
+test:
+	$(Q)norminette > /dev/null
+dist: test
 	$(Q)sh build/scripts/dist.sh
 .PHONY: all clean fclean re dist
