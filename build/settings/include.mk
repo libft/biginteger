@@ -41,7 +41,7 @@ re: fclean all
 define build_common_rule
 $1: $2
 	$(Q)mkdir -p $(dir $1)
-	$(Q)$(CC) $(CFLAGS) -c $2 -o $1 -MD
+	$(Q)$(CC) $(CFLAGS) -c $2 -o $1 -MMD
 endef
 $(foreach f, \
 	$(OBJS), \
