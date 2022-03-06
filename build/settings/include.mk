@@ -12,10 +12,11 @@ $(call require_v, TARGET_MODE, debug or release)
 $(call require_v, TARGET_TYPE, a or so)
 
 # common variables
-CC = clang
+CC := clang
+AR := $(if $(filter 1,$(DIST)),llvm-ar,ar)
 SRC_DIR := $(BASE_DIR)/src
 CFLAGS := -Weverything -Wno-poison-system-directories -Werror -std=c99 -pedantic -I$(SRC_DIR)/includes -I$(BASE_DIR)/.ft_cache/dependencies/includes
-LDFLAGS := -L$(BASE_DIR)/.ft_cache/dependencies $(shell sh $(BASE_DIR)/build/scripts/get-dependencies.sh $(BASE_DIR))
+CFLAGS := -I$(SRC_DIR)/includes -I$(BASE_DIR)/.ft_cache/dependencies/includes
 SRCS := $(shell sh $(BASE_DIR)/build/scripts/get-srcs.sh $(SRC_DIR))
 OBJS := $(SRCS:%.c=%.o)
 

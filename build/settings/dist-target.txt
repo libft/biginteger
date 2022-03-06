@@ -1,2 +1,2 @@
-arm64-apple-macos12
-x86_64-apple-macos10.12
+arm64-apple-macos12:m1_macOS
+x86_64-apple-macos10.12:64bit_macOS
