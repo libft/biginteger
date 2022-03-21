@@ -1,2 +1,3 @@
 dist/*
 .ft_cache
+variables.local.mk

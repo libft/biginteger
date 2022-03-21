@@ -19,6 +19,7 @@ CFLAGS := -Weverything -Wno-poison-system-directories -Werror -std=c99 -pedantic
 CFLAGS := -I$(SRC_DIR)/includes -I$(BASE_DIR)/.ft_cache/dependencies/includes
 SRCS := $(shell sh $(BASE_DIR)/build/scripts/get-srcs.sh $(SRC_DIR))
 OBJS := $(SRCS:%.c=%.o)
+-include $(BASE_DIR)/variables.local.mk
 
 # util variables
 Q = $(if $(filter 1,$(V) $(VERBOSE)),,@)
