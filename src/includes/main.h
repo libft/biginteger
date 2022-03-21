@@ -14,6 +14,7 @@
 # define MAIN_H
 
 # include <stddef.h>
+# include <stdbool.h>
 # include <stdint.h>
 
 typedef struct s_biginteger_part {
@@ -23,7 +24,8 @@ typedef struct s_biginteger_part {
 }	t_biginteger_part;
 
 struct s_biginteger {
-	bool				negative;
+	bool				is_negative:1;
+	bool				is_static:1;
 	t_biginteger_part	*part;
 };
 
