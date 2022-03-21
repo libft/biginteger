@@ -17,7 +17,7 @@
 # include <stdbool.h>
 # include <stdint.h>
 
-typedef struct s_biginteger	t_biginteger;
+# include <ft/biginteger_types.h>
 
 const t_biginteger			*g_biginteger_one;
 const t_biginteger			*g_biginteger_zero;
