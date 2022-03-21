@@ -10,21 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#ifndef BIGINTEGER_H
+# define BIGINTEGER_H
 
 # include <stddef.h>
+# include <stdbool.h>
 # include <stdint.h>
 
-typedef struct s_biginteger_part {
-	size_t		length;
-	size_t		capacity;
-	uint32_t	number[];
-}	t_biginteger_part;
+typedef struct s_biginteger	t_biginteger;
 
-struct s_biginteger {
-	bool				negative;
-	t_biginteger_part	*part;
-};
+t_biginteger				*g_biginteger_one;
+t_biginteger				*g_biginteger_zero;
+t_biginteger				*g_biginteger_ten;
+
+t_biginteger	*new_biginteger(int32_t value);
+
+t_biginteger	*new_biginteger_add(t_biginteger *lhs, t_biginteger *rhs);
+t_biginteger	*new_biginteger_sub(t_biginteger *lhs, t_biginteger *rhs);
+t_biginteger	*new_biginteger_mul(t_biginteger *lhs, t_biginteger *rhs);
+t_biginteger	*new_biginteger_div(t_biginteger *lhs, t_biginteger *rhs);
+t_biginteger	*new_biginteger_mod(t_biginteger *lhs, t_biginteger *rhs);
+t_biginteger	*new_biginteger_sum(t_biginteger **array, size_t length);
+t_biginteger	*new_biginteger_product(t_biginteger **array, size_t length);
+
+t_biginteger	*delete_biginteger(t_biginteger *self);
 
 #endif
